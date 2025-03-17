@@ -7,6 +7,7 @@ const amount = document.getElementById("amount")
 const currency = document.getElementById("currency")
 const footer = document.querySelector("main footer")
 const description = document.getElementById("description")
+const result = document.getElementById("result")
 
 amount.addEventListener("input", () => {
     
@@ -34,6 +35,10 @@ function convertCurrency(amount, price, symbol) {
     try {
         description.textContent = `${symbol} 1 = ${formatCurencyBRL(price)}`
         footer.classList.add("show-result")
+
+        let total = amount * price
+        result.textContent = total
+
     } catch (error) {
         console.log(error)
         footer.classList.remove("show-result")
